@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Data User')
+@section('title', 'Data Siswa')
 @section('pagetitle')
     <h1>Data User</h1>
 @endsection
@@ -17,7 +17,7 @@
             <div>
               <form action="{{route('kelas.create')}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
-
+            
                 <div class="form-group">
                   <label for="exampleInputPassword1">Nama Kelas</label>
                   <input name="nama_kelas" type="text" class="form-control" id="name">
