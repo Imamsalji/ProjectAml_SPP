@@ -7,49 +7,70 @@
 <div class="section-body">
     <div class="row">
         <div class="col-12 col-md-12 col-lg-12">
-        <div class="card">
-				<div class="card-header">
-					<h4>Edit Tugas</h4>
-				</div>
-				<div class="card-body">
+           <div class="card">
+               <div class="card-body">
+                 <form action="{{ route('update_user', $user->id) }}" method="POST">
+                   @csrf
+                  <div class="row">
 
-					<div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label @error('name') class="text-danger" 
+                        @enderror>Nama @error('name')
+                             {{ $message }}
+                          @enderror
+                        </label>
+                        <input id="email" type="name" name="name" class="form-control" value="{{ $user->name }}">
+                      </div>
+                    </div>
 
-						<div class="row" style="margin-left: -150px;">
-						</div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label @error('level') class="text-danger" 
+                        @enderror>Level @error('level')
+                             {{ $message }}
+                          @enderror
+                        </label>
+                        <select class="form-control" name="level" id="level">  
+                          <option>{{ $user->level }}</option>                      
+                          <option value="admin" @if($user->level == 'admin') @endif>admin</option>
+                          <option value="distributor" @if($user->level == 'distributor') @endif>distributor</option>
+                          <option value="pj" @if($user->level == 'pj') @endif>pj</option>
+                        </select>
+                      </div>
+                    </div>
 
-						<div class="row" style="margin-left: -150px;">
-							<div class="col-md-8 offset-sm-2">
-								<form action="{{url('kelas.update', $kelas->id)}}" method="POST">
-									{{csrf_field()}}
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label @error('password') class="text-danger" 
+                        @enderror>Password @error('password')
+                             {{ $message }}
+                          @enderror
+                        </label>
+                        <input id="password" type="password" name="password" class="form-control" value="{{ $user->password }}">
+                      </div>
+                    </div>
 
-									<div class="form-group">
-										
-										<div class="form-group">
-											<label for="exampleInputPassword1">nama_kelas</label>
-											<input name="nama_kelas" type="text" class="form-control" id="exampleInputPassword1" value="{{$kelas->nama_kelas}}">
-										</div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label @error('email') class="text-danger" 
+                        @enderror>Email @error('email')
+                             {{ $message }}
+                          @enderror
+                        </label>
+                        <input id="email" type="email" name="email" class="form-control" value="{{ $user->email }}">
+                      </div>
+                    </div>
 
-										<div class="form-group">
-											<label for="exampleInputPassword1">keahlian_kompeten</label>
-											<input name="keahlian_kompeten" type="text" class="form-control" id="exampleInputPassword1" value="{{$kelas->kompetensi_keahlian}}">
-										</div>
-
-
-
-
-									</div>
-							</div>
-
-
-							<button type="submit" style="margin-left: 70%;" class="btn btn-primary mb-3">save</button>
-							</form>
-
-						</div>
-					</div>
-					<canvas id="myChart" height="158"></canvas>
-				</div>
-			</div>
+                  </div>
+                  <div class="card-footer text-right">
+                      <button class="btn btn-primary mr-1" type="submit">Submit</button>
+                      <button class="btn btn-secondary" type="reset">Reset</button>
+                      <a href="{{ route('user') }}" class="btn btn-icon icon-left btn-primary">Cancel</a>
+                  </div>
+                 </form>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

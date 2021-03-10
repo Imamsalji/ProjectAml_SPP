@@ -1,13 +1,13 @@
 @extends('layouts.master')
-@section('title', 'Data User')
+@section('title', 'Pembayaran')
 @section('pagetitle')
-    <h1>Data User</h1>
+    <h1>Pembayaran</h1>
 @endsection
 @section('content')
 <div class="section-body">
     <div class="row">
         <div class="col-12 col-md-12 col-lg-12">
-           <a href="{{ route('create_user') }}" class="btn btn-outline-primary"><i class="far fa-edit"></i>Tambah Data</a>
+           <a href="{{ route('pembayaran.create') }}" class="btn btn-outline-primary"><i class="far fa-edit"></i>Masukan pembayaran</a>
            <hr>
            <div class="card">
                <div class="card-body">
@@ -30,31 +30,42 @@
                     </div>
                 </div>
                 @endif
+                <div class="table-responsive">
            <table id="table" class="table table-striped table-bordered table-md">
                <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama</th>
-                    <th>Level</th>
-                    <th>Email</th>
+                    <th>id_petugas</th>
+                    <th>nisn</th>
+                    <th>tgl_bayar</th>
+                    <th>Bulan Bayar</th>
+                    <th>tahun_dibayar</th>
+                    <th>id_spp</th>
+                    <th>jumlah_pembayaran</th>
                     <th>Action</th>
                 </tr>
                </thead>
                <tbody>
-                @foreach ($data as $item)
+                @foreach ($pembayaran as $item)
                 <tr> 
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->name }}</td>
-                    <td>{{ $item->level }}</td>
-                    <td>{{ $item->email }}</td>
+                    <td>{{ $item->id_petugas }}</td>
+                    <td>{{ $item->nisn }}</td>
+                    
+                    <td>{{ $item->bulan_dibayar }}</td>
+                    <td>{{ $item->tgl_bayar }}</td>
+                    <td>{{ $item->tahun_dibayar }}</td>
+                    <td>{{ $item->id_spp }}</td>
+                    <td>{{ $item->jumlah_pembayaran }}</td>
                     <td>
-                        <a href="{{url('edit_user', $item->id)}}" class="btn btn-outline-warning">Edit</a>
-                        <a href="{{url('delete_user', $item->id)}}" onclick="return confirm('Yakin hapus data?')" class="btn btn-outline-danger">Delete</a>
+                        <a href="{{route('pembayaran.edit', $item->id)}}" class="btn btn-outline-warning">Edit Pembayaran</a>
+                        <a href="{{url('delete_user', $item->id)}}" onclick="return confirm('Yakin hapus data?')" class="btn btn-outline-danger">pembayaran delate</a>
                     </td>
                 </tr>
                 @endforeach
                </tbody>
            </table>
+           </div>
                </div>
            </div>
         </div>

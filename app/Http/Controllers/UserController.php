@@ -90,6 +90,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd($request->all());
         $this->_validation($request);
         $user = User::findorfail($id);
         $request->merge(['password'=>bcrypt($request->password)]);
