@@ -22,9 +22,33 @@ Route::get('login', function () {
 Route::post('postlogin', 'LoginController@login')->name('postlogin');
 Route::get('logout', 'LoginController@logout')->name('logout');
 
+
+
+Route::prefix('/kelas')->name('kelas.')->group(function () {
+    Route::get('/', 'KelasController@index')->name('index');
+    Route::post('/create', 'KelasController@create')->name('create');
+    Route::get('/edit/{id}', 'KelasController@edit')->name('edit');
+    Route::post('/update/{id}', 'KelasController@update')->name('update');
+    Route::get('/delete/{id}', 'KelasController@destroy')->name('delete');
+});
+
+Route::prefix('/spp')->name('spp.')->group(function () {
+    Route::get('/', 'SppController@index')->name('index');
+    Route::post('/create', 'SppController@create')->name('create');
+    Route::get('/edit/{id}', 'SppController@edit')->name('edit');
+    Route::post('/update/{id}', 'SppController@update')->name('update');
+    Route::get('/delete/{id}', 'SppController@destroy')->name('delete');
+});
+
+
+
+
+
 Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 });
+
+
 Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     Route::get('user', 'UserController@index')->name('user');
     Route::get('create_user', 'UserController@create')->name('create_user');
@@ -33,4 +57,3 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     Route::post('update_user/{id}', 'UserController@update')->name('update_user');
     Route::get('delete_user/{id}', 'UserController@destroy')->name('delete_user');
 });
-

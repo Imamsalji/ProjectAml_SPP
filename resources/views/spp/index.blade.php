@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Data User')
+@section('title', 'Data Siswa')
 @section('pagetitle')
     <h1>Data User</h1>
 @endsection
@@ -15,17 +15,17 @@
           <div class="card-body">
 
             <div>
-              <form action="{{route('kelas.create')}}" method="POST" enctype="multipart/form-data">
+              <form action="{{route('spp.create')}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
 
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Nama Kelas</label>
-                  <input name="nama_kelas" type="text" class="form-control" id="name">
+                  <label for="exampleInputPassword1">Tahun</label>
+                  <input name="tahun" type="text" class="form-control" id="name">
                 </div>
                
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Kompetensi Keahlian</label>
-                  <input name="kompetensi_keahlian" type="text" class="form-control" id="name">
+                  <label for="exampleInputPassword1">Nominal</label>
+                  <input name="nominal" type="text" class="form-control" id="name">
                 </div>
               
             </div>
@@ -48,21 +48,21 @@
                       <thead>
                         <tr>
                           <th scope="col">id</th>
-                          <th scope="col">Nama Kelas</th>
-                          <th scope="col">Kompetensi Keahlian</th>
+                          <th scope="col">Tahun</th>
+                          <th scope="col">Nominal</th>
                         
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($kelas as $kelas)
+                        @foreach ($spp as $spp)
                         <tr>
-                          <td>{{$kelas->id}}</td>
-                          <td>{{$kelas->nama_kelas}}</td>
-                          <td>{{$kelas->kompetensi_keahlian}}</td>
+                          <td>{{$spp->id}}</td>
+                          <td>{{$spp->tahun}}</td>
+                          <td>{{$spp->nominal}}</td>
                          
                           <td>
-                            <a class="btn btn-info" href="{{ route('kelas.edit', $kelas->id)}}">Edit</a>
-                            <a class="btn btn-danger" href="{{ route('kelas.delete', $kelas->id)}}" onclick="return confirm('yakin akan di hapus?')">Delete</a>
+                            <a class="btn btn-info" href="{{ route('spp.edit', $spp->id)}}">Edit</a>
+                            <a class="btn btn-danger" href="{{ route('spp.delete', $spp->id)}}" onclick="return confirm('yakin akan di hapus?')">Delete</a>
                           </td>
                         </tr>
                         @endforeach

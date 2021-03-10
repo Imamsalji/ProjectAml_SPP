@@ -23,6 +23,14 @@
                 <i class="fas fa-columns"></i> 
                 <span>Data User</span>
               </a>
+              <a href="/kelas" class="nav-link">
+                <i class="fas fa-columns"></i> 
+                <span>Data Kelas</span>
+              </a>
+              <a href="/spp" class="nav-link">
+                <i class="fas fa-columns"></i> 
+                <span>Data SPP</span>
+              </a>
             </li>
             @endif
         </ul>

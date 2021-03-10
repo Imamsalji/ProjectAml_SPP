@@ -20,7 +20,7 @@
 
 						<div class="row" style="margin-left: -150px;">
 							<div class="col-md-8 offset-sm-2">
-								<form action="{{url('kelas.update', $kelas->id)}}" method="POST">
+								<form action="{{route('kelas.update', $kelas->id)}}" method="POST">
 									{{csrf_field()}}
 
 									<div class="form-group">
@@ -31,8 +31,8 @@
 										</div>
 
 										<div class="form-group">
-											<label for="exampleInputPassword1">keahlian_kompeten</label>
-											<input name="keahlian_kompeten" type="text" class="form-control" id="exampleInputPassword1" value="{{$kelas->kompetensi_keahlian}}">
+											<label for="exampleInputPassword1">kompetensi_keahlian</label>
+											<input name="kompetensi_keahlian" type="text" class="form-control" id="exampleInputPassword1" value="{{$kelas->kompetensi_keahlian}}">
 										</div>
 
 
