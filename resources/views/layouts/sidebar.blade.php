@@ -1,10 +1,10 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
       <div class="sidebar-brand">
-        <a href="#">SIM Inventaris Barang</a>
+        <a href="#">SIM Spp</a>
       </div>
       <div class="sidebar-brand sidebar-brand-sm">
-        <a href="#">SIM Inventaris Barang</a>
+        <a href="#">SPP</a>
       </div>
       <ul class="sidebar-menu">
 
