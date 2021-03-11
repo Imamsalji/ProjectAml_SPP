@@ -35,9 +35,6 @@
 											<input name="kompetensi_keahlian" type="text" class="form-control" id="exampleInputPassword1" value="{{$kelas->kompetensi_keahlian}}">
 										</div>
 
-
-
-
 									</div>
 							</div>
 
