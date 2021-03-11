@@ -20,7 +20,7 @@ class CreateSppTable extends Migration
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *

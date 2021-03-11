@@ -53,7 +53,6 @@ class PembayaranController extends Controller
     {
         return view('pembayaran.show',compact('pembayaran'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
