@@ -9,36 +9,34 @@
         <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
 				<div class="card-header">
-					<h4>Edit SPP</h4>
+					<h4>Edit Tugas</h4>
 				</div>
 				<div class="card-body">
+
 					<div>
+
 						<div class="row" style="margin-left: -150px;">
 						</div>
 
 						<div class="row" style="margin-left: -150px;">
 							<div class="col-md-8 offset-sm-2">
-								<form action="{{route('spp.update', $spp->id)}}" method="POST">
+								<form action="{{route('kelas.update', $kelas->id)}}" method="POST">
 									{{csrf_field()}}
 
 									<div class="form-group">
 										
 										<div class="form-group">
-											<label for="exampleInputPassword1">tahun</label>
-											<input name="tahun" type="text" class="form-control" id="exampleInputPassword1" value="{{$spp->tahun}}">
+											<label for="exampleInputPassword1">nama_kelas</label>
+											<input name="nama_kelas" type="text" class="form-control" id="exampleInputPassword1" value="{{$kelas->nama_kelas}}">
 										</div>
 
 										<div class="form-group">
-											<label for="exampleInputPassword1">nominal</label>
-											<input name="nominal" type="text" class="form-control" id="exampleInputPassword1" value="{{$spp->nominal}}">
+											<label for="exampleInputPassword1">kompetensi_keahlian</label>
+											<input name="kompetensi_keahlian" type="text" class="form-control" id="exampleInputPassword1" value="{{$kelas->kompetensi_keahlian}}">
 										</div>
-
-
-
 
 									</div>
 							</div>
-
 
 							<button type="submit" style="margin-left: 70%;" class="btn btn-primary mb-3">save</button>
 							</form>

@@ -91,7 +91,6 @@ class SppController extends Controller
             'tahun' => $request->tahun,
             'nominal' => $request->nominal,
             
-
         ]);
         return redirect('/spp');
     }

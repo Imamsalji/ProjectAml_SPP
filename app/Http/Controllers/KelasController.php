@@ -93,7 +93,6 @@ class KelasController extends Controller
             'nama_kelas' => $request->nama_kelas,
             'kompetensi_keahlian' => $request->kompetensi_keahlian,
             
-
         ]);
         return redirect('/kelas');
     }

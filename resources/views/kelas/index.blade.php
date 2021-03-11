@@ -27,7 +27,6 @@
                   <label for="exampleInputPassword1">Kompetensi Keahlian</label>
                   <input name="kompetensi_keahlian" type="text" class="form-control" id="name">
                 </div>
-              
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
