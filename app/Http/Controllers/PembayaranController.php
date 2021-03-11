@@ -90,8 +90,7 @@ class PembayaranController extends Controller
      */
     public function destroy(pembayaran $pembayaran)
     {
-        $pembayaran::delate();
-        return redirect()->route('pembayaran.index')
-                        ->with('success','Product updated successfully');
+        $pembayaran->delete();
+        return back()->with('delete', 'Data berhasil dihapus');
     }
 }

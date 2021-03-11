@@ -59,7 +59,11 @@
                     <td>{{ $item->jumlah_pembayaran }}</td>
                     <td>
                         <a href="{{route('pembayaran.edit', $item->id)}}" class="btn btn-outline-warning">Edit Pembayaran</a>
-                        <a href="{{url('delete_user', $item->id)}}" onclick="return confirm('Yakin hapus data?')" class="btn btn-outline-danger">pembayaran delate</a>
+                        <form action="{{ route('pembayaran.destroy',$item->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('Yakin hapus data?')" class="btn btn-outline-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
