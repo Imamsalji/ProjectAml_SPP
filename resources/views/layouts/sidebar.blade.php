@@ -7,7 +7,6 @@
         <a href="#">SPP</a>
       </div>
       <ul class="sidebar-menu">
-
           <li class="menu-header">Dashboard</li>
           <li class="nav-item dropdown">
             <a href="{{ route('dashboard') }}" class="nav-link ">
