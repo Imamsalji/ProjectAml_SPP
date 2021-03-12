@@ -34,8 +34,8 @@
                         <select class="form-control" name="level" id="level">
                           <option value disable>Pilih Level</option>
                           <option value="admin">Admin</option>
-                          <option value="distributor">Distributor</option>
-                          <option value="pj">PJ_Ruangan</option>
+                          <option value="petugas">petugas</option>
+                          <option value="siswa">siswa</option>
                         </select>
                       </div>
                     </div>

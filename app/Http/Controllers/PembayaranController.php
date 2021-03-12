@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\{pembayaran,petugas,siswa,spp};
+use App\{pembayaran,User,siswa,spp};
 use Illuminate\Http\Request;
 
 class PembayaranController extends Controller
@@ -25,7 +25,7 @@ class PembayaranController extends Controller
      */
     public function create(pembayaran $pembayaran)
     {
-        $petugas = petugas::all();
+        $petugas = User::where('level','like',"%".'petugas'."%")->get();
         $siswa = siswa::all();
         $spp = spp::all();
         return view('pembayaran.create',compact('pembayaran','petugas','siswa','spp'));
@@ -61,7 +61,7 @@ class PembayaranController extends Controller
      */
     public function edit(pembayaran $pembayaran)
     {
-        $petugas = petugas::all();
+        $petugas = User::where('level','like',"%".'petugas'."%")->get();
         $siswa = siswa::all();
         $spp = spp::all();
         return view('pembayaran.edit',compact('petugas','siswa','spp','pembayaran'));
@@ -79,6 +79,15 @@ class PembayaranController extends Controller
         $pembayaran->update($request->all());
         return redirect()->route('pembayaran.index')
                         ->with('success','Product updated successfully');
+    }
+
+    public function statusupdate(Request $request, pembayaran $pembayaran)
+    {
+        $pembayaran->update([
+            'status' => $request->status,
+        ]);
+        return redirect()->route('pembayaran.index')
+                        ->with('message','Status Telah diubah');
     }
 
     /**

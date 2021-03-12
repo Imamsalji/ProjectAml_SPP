@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePetugasTable extends Migration
+class AddToPembayaranTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreatePetugasTable extends Migration
      */
     public function up()
     {
-        Schema::create('petugas', function (Blueprint $table) {
-            $table->id();
-            $table->string('username');
-            $table->string('password');
-            $table->string('nama_petugas');
-            $table->string('level');
-            $table->timestamps();
+        Schema::table('pembayaran', function (Blueprint $table) {
+            $table->string('status')->after('jumlah_pembayaran');
         });
     }
 
@@ -30,6 +25,9 @@ class CreatePetugasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('petugas');
+        Schema::table('pembayaran', function (Blueprint $table) {
+            $table->dropColumn('status');
+            
+        });
     }
 }

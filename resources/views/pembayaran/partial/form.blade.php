@@ -4,7 +4,7 @@
             <select class="form-control" name="id_petugas" id="id_petugas">
                 <option value disable>Pilih Petugas</option>
                 @foreach ($petugas as $item)
-                <option value="{{ $item->id }}">{{ $item->username }}</option>
+                <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach
             </select>
       </div>
@@ -17,7 +17,7 @@
       <div class="form-group">
           <label for="nisn">nisn</label>
             <select class="form-control" name="nisn" id="nisn">
-                <option value disable>Pilih Petugas</option>
+                <option value disable>Pilih Siswa</option>
                 @foreach ($siswa as $item)
                 <option value="{{ $item->id }}">{{ $item->nama }}</option>
                 @endforeach
@@ -63,11 +63,11 @@
       @enderror
 
       <div class="form-group">
-          <label for="id_spp">id_spp</label>
+          <label for="id_spp">nominal spp</label>
           <select class="form-control" name="id_spp" id="id_spp">
                 <option value disable>Pilih Petugas</option>
                 @foreach ($spp as $item)
-                <option value="{{ $item->id }}">{{ $item->id_spp }}</option>
+                <option value="{{ $item->id }}">{{ $item->nominal }}</option>
                 @endforeach
             </select>
       </div>
@@ -87,6 +87,24 @@
               <strong>{{ $message }}</strong>
           </span>
       @enderror
+
+      <div class="form-group">
+          <label for="status">status Pembayaran</label>
+        <select class="form-control" name="status" id="status">
+            <option value disable>Pilih Status Pembayaran</option>
+            <option value="BelumBayar">Belum bayar</option>
+            <option value="SudahBayar">Sudah Bayar</option>
+        </select>
+      </div>
+      @error('jumlah_pembayaran')
+          <span class=" text-danger">
+              <strong>{{ $message }}</strong>
+          </span>
+      @enderror
+
+    
+
+
   </div>
   <div class="card-footer">
       <a href="{{ route('pembayaran.index') }}" class="btn btn-danger mr-2" style="border-radius: 0;">Back</a>

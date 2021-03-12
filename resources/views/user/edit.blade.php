@@ -34,8 +34,8 @@
                         <select class="form-control" name="level" id="level">  
                           <option>{{ $user->level }}</option>                      
                           <option value="admin" @if($user->level == 'admin') @endif>admin</option>
-                          <option value="distributor" @if($user->level == 'distributor') @endif>distributor</option>
-                          <option value="pj" @if($user->level == 'pj') @endif>pj</option>
+                          <option value="petugas" @if($user->level == 'petugas') @endif>petugas</option>
+                          <option value="siswa" @if($user->level == 'siswa') @endif>siswa</option>
                         </select>
                       </div>
                     </div>

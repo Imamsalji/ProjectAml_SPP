@@ -16,8 +16,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email','level', 'password',
     ];
+
+    public function pembayaran()
+    {
+        return $this->hasMany(pembayaran::class);
+    }
 
     /**
      * The attributes that should be hidden for arrays.
