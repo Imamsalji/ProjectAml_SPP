@@ -39,6 +39,7 @@ class PembayaranController extends Controller
      */
     public function store(Request $request)
     {
+        $this->_validasi($request);
         pembayaran::create($request->all());
         return redirect('pembayaran');
     }
@@ -61,6 +62,7 @@ class PembayaranController extends Controller
      */
     public function edit(pembayaran $pembayaran)
     {
+        
         $petugas = User::where('level','like',"%".'petugas'."%")->get();
         $siswa = siswa::all();
         $spp = spp::all();
@@ -76,6 +78,7 @@ class PembayaranController extends Controller
      */
     public function update(Request $request, pembayaran $pembayaran)
     {
+        $this->_validasi($request);
         $pembayaran->update($request->all());
         return redirect()->route('pembayaran.index')
                         ->with('success','Product updated successfully');
@@ -100,5 +103,29 @@ class PembayaranController extends Controller
     {
         $pembayaran->delete();
         return back()->with('delete', 'Data berhasil dihapus');
+    }
+
+    public function _validasi(Request $request)
+    {
+        $validation = $request->validate([
+            'id_petugas' => 'required',
+            'nisn' => 'required',
+            'tgl_bayar' => 'required',
+            'bulan_dibayar' => 'required',
+            'tahun_dibayar' => 'required',
+            'id_spp' => 'required',
+            'jumlah_pembayaran' => 'required',
+            'status' => 'required',
+        ],
+        [
+            'name.id_petugas' => 'Petugas harus ada!',
+            'nisn.required' => 'Nisn harus ada!',
+            'tgl_bayar.required' => 'tanggal bayar harus ada!',
+            'bulan_dibayar.required' => 'bulan bayar harus ada!',
+            'tahun_dibayar.required' => 'tahun bayar harus ada!',
+            'id_spp.required' => 'spp harus dipilih!',
+            'jumlah_pembayaran.required' => 'jumlah pembayaran harus ada!',
+            'status.required' => 'status harus ada!',
+        ]);
     }
 }

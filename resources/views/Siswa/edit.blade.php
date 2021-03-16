@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', 'pembayaran')
 @section('pagetitle')
-    <h1>Edit Pembayaran</h1>
+    <h1>Edit Siswa</h1>
 @endsection
 @section('content')
 <div class="section-body">

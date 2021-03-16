@@ -40,7 +40,6 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     //siswa
     Route::resource('Siswa','SiswaController');
     //petugas
-    Route::resource('Petugas','PetugasController');
 
 
     Route::patch('status/{pembayaran}','PembayaranController@statusupdate')->name('status');

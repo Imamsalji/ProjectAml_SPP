@@ -7,86 +7,88 @@
                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                 @endforeach
             </select>
-      </div>
       @error('id_petugas')
           <span class=" text-danger">
               <strong>{{ $message }}</strong>
           </span>
       @enderror
+      </div>
 
       <div class="form-group">
           <label for="nisn">nisn</label>
             <select class="form-control" name="nisn" id="nisn">
                 <option value disable>Pilih Siswa</option>
                 @foreach ($siswa as $item)
-                <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                <option value="{{ $item->id }}">{{ $item->nama }} - {{ $item->nisn }}</option>
                 @endforeach
             </select>
-      </div>
       @error('nisn')
           <span class=" text-danger">
               <strong>{{ $message }}</strong>
           </span>
       @enderror
+      </div>
 
       <div class="form-group">
           <label for="tgl_bayar">Tanggal Pembayaran</label>
           <input type="date" name="tgl_bayar" id="tgl_bayar" class="form-control"
               value="{{ old('tgl_bayar') ?? $pembayaran->tgl_bayar }}">
-      </div>
       @error('tgl_bayar')
           <span class=" text-danger">
               <strong>{{ $message }}</strong>
           </span>
       @enderror
+      </div>
 
       <div class="form-group">
           <label for="bulan_dibayar">Bulan dibayar</label>
-          <input type="text" name="bulan_dibayar" id="bulan_dibayar" class="form-control"
+          <input type="mounth" name="bulan_dibayar" id="bulan_dibayar" class="form-control"
               value="{{ old('bulan_dibayar') ?? $pembayaran->bulan_dibayar }}">
-      </div>
       @error('bulan_dibayar')
           <span class=" text-danger">
               <strong>{{ $message }}</strong>
           </span>
       @enderror
+      </div>
 
       <div class="form-group">
           <label for="tahun_dibayar">tahun_dibayar</label>
           <input type="text" name="tahun_dibayar" id="tahun_dibayar" class="form-control"
               value="{{ old('tahun_dibayar') ?? $pembayaran->tahun_dibayar }}">
-      </div>
       @error('tahun_dibayar')
           <span class=" text-danger">
               <strong>{{ $message }}</strong>
           </span>
       @enderror
+      </div>
 
       <div class="form-group">
           <label for="id_spp">nominal spp</label>
           <select class="form-control" name="id_spp" id="id_spp">
-                <option value disable>Pilih Petugas</option>
+                <option value disable>Nominal</option>
                 @foreach ($spp as $item)
                 <option value="{{ $item->id }}">{{ $item->nominal }}</option>
                 @endforeach
             </select>
-      </div>
-      @error('id_spp')
+            @error('id_spp')
           <span class=" text-danger">
               <strong>{{ $message }}</strong>
           </span>
       @enderror
+      </div>
+      
 
       <div class="form-group">
           <label for="jumlah_pembayaran">jumlah_pembayaran</label>
           <input type="text" name="jumlah_pembayaran" id="jumlah_pembayaran" class="form-control"
               value="{{ old('jumlah_pembayaran') ?? $pembayaran->jumlah_pembayaran }}">
+            @error('jumlah_pembayaran')
+                <span class=" text-danger">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
       </div>
-      @error('jumlah_pembayaran')
-          <span class=" text-danger">
-              <strong>{{ $message }}</strong>
-          </span>
-      @enderror
+      
 
       <div class="form-group">
           <label for="status">status Pembayaran</label>
@@ -95,12 +97,13 @@
             <option value="BelumBayar">Belum bayar</option>
             <option value="SudahBayar">Sudah Bayar</option>
         </select>
-      </div>
-      @error('jumlah_pembayaran')
+        @error('status')
           <span class=" text-danger">
               <strong>{{ $message }}</strong>
           </span>
       @enderror
+      </div>
+      
 
     
 

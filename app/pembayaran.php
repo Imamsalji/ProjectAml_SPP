@@ -16,4 +16,8 @@ class pembayaran extends Model
     {
         return $this->belongsTo(User::class,'id_petugas','id');
     }
+    public function siswa()
+    {
+        return $this->belongsTo(User::class,'nisn','nisn');
+    }
 }

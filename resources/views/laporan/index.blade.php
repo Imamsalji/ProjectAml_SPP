@@ -33,29 +33,24 @@
                         <br>
                         <br>
                             <button type="submit" class="btn btn-primary mb-3">Cari</button>
-                            @php if(isset($startDate) && isset($endDate)){ @endphp
-                            <a href="{{ route('laporanprint', ['startDate' => $startDate, 'endDate' => $endDate]) }}" class="btn btn-info mb-3 ml-2">Cetak</a>
-                            @php }else{ @endphp
-                            <a href="{{ route('laporanprint') }}" class="btn btn-info mb-3 ml-2">Cetak</a>
-                            @php } @endphp
                         </div>
 
                 </form>
         </div>
     </div>
     <div class="table-responsive">
-           <table id="table" class="table table-striped table-bordered table-md">
+           <table id="example" class="table table-striped table-bordered table-md">
                <thead>
                 <tr>
                     <th>No</th>
-                    <th>id_petugas</th>
+                    <th>petugas</th>
                     <th>nisn</th>
-                    <th>tgl_bayar</th>
+                    <th>tgl bayar</th>
                     <th>Bulan Bayar</th>
-                    <th>tahun_dibayar</th>
-                    <th>id_spp</th>
-                    <th>jumlah_pembayaran</th>
-                    <th>tanggal data masuk</th>
+                    <th>tahun dibayar</th>
+                    <th>spp</th>
+                    <th>pembayaran</th>
+                    <th>tanggal masuk</th>
                     <th>Status Pembayaran</th>
                 </tr>
                </thead>
@@ -94,7 +89,25 @@
 @push('after-script')
 <script type="text/javascript">
     $(document).ready(function() {
-        $('#table').DataTable();
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy',
+            'csv',
+            'excel',
+            'pdf',
+            {
+                extend: 'print',
+                text: 'Print all (not just selected)',
+                exportOptions: {
+                    modifier: {
+                        selected: null
+                    }
+                }
+            }
+        ],
+        select: true
     } );
+} );
 </script>
 @endpush

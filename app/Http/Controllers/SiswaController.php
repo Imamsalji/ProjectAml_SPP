@@ -27,7 +27,7 @@ class SiswaController extends Controller
     {
         $kelas = Kelas::all();
         $spp = spp::all();
-        return view('Siswa.create',compact('kelas','siswa','spp'));
+        return view('Siswa.create',compact('siswa','spp','kelas'));
     }
 
     /**
@@ -38,6 +38,7 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validasi($request);
         Siswa::create($request->all());
         return redirect('Siswa');
     }
@@ -76,6 +77,7 @@ class SiswaController extends Controller
      */
     public function update(Request $request, Siswa $Siswa)
     {
+        dd($request->all());
         $Siswa->update($request->all());
         return redirect()->route('Siswa.index')
                         ->with('message','Berhasil Mengaupdate');
@@ -91,5 +93,25 @@ class SiswaController extends Controller
     {
         $Siswa->delete();
         return back()->with('delete', 'Data berhasil dihapus');
+    }
+
+    public function validasi(Request $request)
+    {
+        $validation = $request->validate([
+            'nisn' => 'required',
+            'nama' => 'required',
+            'alamat' => 'required',
+            'no_telp' => 'required',
+            'id_kelas' => 'required',
+            'id_spp' => 'required',
+        ],
+        [
+            'nisn.id_petugas' => 'NISN harus ada!',
+            'nama.required' => 'Nama harus ada!',
+            'alamat.required' => 'Alamat harus ada!',
+            'no_telp.required' => 'Nomor telepon  harus ada!',
+            'id_kelas.required' => 'Kelas harus ada!',
+            'id_spp.required' => 'SPP harus dipilih!',
+        ]);
     }
 }

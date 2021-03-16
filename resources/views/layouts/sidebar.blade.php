@@ -59,7 +59,7 @@
               </a>
             </li>
 
-            <li class="nav-item dropdown {{ Request::is('user', 'create_user') ? 'sidebar-item active' : '' }}">
+            <li class="nav-item dropdown {{ Request::is('laporan') ? 'sidebar-item active' : '' }}">
               <a href="{{ route('laporan') }}" class="nav-link">
                 <i class="fas fa-history"></i> 
                 <span>Laporan</span>

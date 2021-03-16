@@ -18,8 +18,11 @@
   <link rel="stylesheet" href="{{ asset('../assets/css/components.css') }}">
 
   <!-- Datatables CSS -->
-  <link rel="stylesheet" type="text/css" href="{{ asset('https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css') }}">
   <link rel="stylesheet" href="{{ asset('https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css') }}">
+
+  
+  <link rel="stylesheet" href="{{ asset('https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css') }}">
 
   @stack('page-styles')
 </head>
@@ -57,9 +60,20 @@
   <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js') }}"></script>
   <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js') }}"></script>
   <script src="{{ asset('../assets/js/stisla.js') }}"></script>
-  <script type="text/javascript" charset="utf8" src="{{ asset('https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js') }}"></script>
   <script src="{{ asset('https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js') }}"></script>
   <script src="{{ asset('../assets/js/popper.min.js') }}"></script>
+
+  <script src="{{ asset('https://code.jquery.com/jquery-3.5.1.js') }}"></script>
+  <script src="{{ asset('https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js') }}"></script>
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js') }}"></script>
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js') }}"></script>
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js') }}"></script>
+  <script src="{{ asset('https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js') }}"></script>
+  <script src="{{ asset('https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js') }}"></script>
+  <script src="{{ asset('https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js') }}"></script>
+  
+ 
 
   <!-- JS Libraies -->
   @stack('page-scripts')

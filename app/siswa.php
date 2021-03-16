@@ -21,4 +21,8 @@ class Siswa extends Model
     {
         return $this->hasMany(pembayaran::class,'id_spp','id_spp');
     }
+    public function nisn()
+    {
+        return $this->hasMany(pembayaran::class,'nisn','nisn');
+    }
 }

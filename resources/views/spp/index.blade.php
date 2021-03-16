@@ -9,7 +9,7 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <h4>Buat Tugas</h4>
+            <h4>Buat SPP</h4>
           </div>
 
           <div class="card-body">
